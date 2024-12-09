@@ -1,0 +1,13 @@
+.bg_Home{
+    background: url(./assets/homeBackground.jpg) no-repeat center;
+    background-size: cover;
+    background-position: top;
+}
+
+.bg_Gradient{
+    background: linear-gradient(to top, #ED147D, rgb(255, 135, 155), #ED147D);
+}
+
+.bg_gradient_fr_HomeAdsReverse{
+    background: white;
+}
