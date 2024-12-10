@@ -4,6 +4,7 @@ import HomeAdsReverse from "../components/HomeAdsReverse.jsx";
 import ProfileSuggestion from "../components/ProfileSuggestion.jsx";
 import ImageSlider from "../components/ImageSlider.jsx";
 import FaqSection from "../components/FaqSection.jsx";
+import FloatingWhatsAppButton from "../components/FloatingWhatsAppButton.jsx";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -69,6 +70,8 @@ const Home = () => {
       <ImageSlider />
       {/* 7th Para/ FAQ section */}
       <FaqSection />
+      {/* Floating Buttons for Whatsapp */}
+      <FloatingWhatsAppButton />
     </div>
   );
 };

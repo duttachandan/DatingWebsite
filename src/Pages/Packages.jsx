@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaCheck } from "react-icons/fa";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 const PricingTable = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -145,7 +145,22 @@ const PricingTable = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 pt-[150px]">
+    <div
+      className="min-h-screen bg-gray-100 py-12 px-4 
+    sm:px-6 lg:px-8 pt-[150px]"
+    >
+      <div 
+      className="flex flex-row-reverse flex-end justify-center 
+      items-center px-5 gap-5 mb-3">
+        <button 
+        className="py-3 px-5 rounded-full text-white hover:bg-gradient-to-bl
+        bg-gradient-to-tr from-pink-500 to-red-600 transition-all">
+          <Link className="font-bold" to="/withdraw">Withdraw</Link>
+        </button>
+        <div className="text-nowrap">
+          Total Money : <span className="text-red-700">$300</span>
+        </div>
+      </div>
       <div className="max-w-5xl mx-auto">
         {/* Desktop View */}
         <div className="hidden sm:block">
@@ -154,7 +169,7 @@ const PricingTable = () => {
               <div
                 key={index}
                 className={`${plan.bgColor} ${plan.textColor} rounded-lg p-6 transition-transform duration-300 transform ${plan.hoverEffect}`}
-                onClick={()=> handleClick(plan.name)}
+                onClick={() => handleClick(plan.name)}
               >
                 <div className="text-center mb-4">
                   <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
@@ -220,7 +235,7 @@ const PricingTable = () => {
                       ? "scale-100 opacity-100"
                       : "scale-95 opacity-50"
                   }`}
-                  onClick={()=> handleClick(plan.name)}
+                  onClick={() => handleClick(plan.name)}
                 >
                   <div
                     className={`

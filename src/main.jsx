@@ -15,24 +15,26 @@ import AboutUs from "./Pages/AboutUs.jsx";
 import Packages from "./Pages/Packages.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        {/* home routes and signup auth */}
-        <Route index element={<Home />} />
-        <Route path="/signup" element={<SignupPage />} />
+  <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* home routes and signup auth */}
+          <Route index element={<Home />} />
+          <Route path="/signup" element={<SignupPage />} />
 
-        {/* Contact options */}
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/about" element={<AboutUs />} />
+          {/* Contact options */}
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/about" element={<AboutUs />} />
 
-        {/* payment pages */}
-        <Route path="/checkout" element={<Deposit />} />
-        <Route path="/withdraw" element={<WithDraw />} />
-        <Route path="/packages" element={<Packages />} /> 
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+          {/* payment pages */}
+          <Route path="/checkout" element={<Deposit />} />
+          <Route path="/withdraw" element={<WithDraw />} />
+          <Route path="/packages" element={<Packages />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </>
 );

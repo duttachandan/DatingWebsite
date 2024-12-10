@@ -16,7 +16,6 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission behavior
     setIsModalOpen(true);
-
     // Redirect to home page after 5 seconds
     setTimeout(() => {
       navigate("/");
