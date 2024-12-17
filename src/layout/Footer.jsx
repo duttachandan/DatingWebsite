@@ -38,9 +38,12 @@ const Footer = () => {
     >
       <div className="basis-1/3 flex justify-center items-center gap-2">
         <img className="h-[50px] w-[50px]" src={Logo} alt="Sites Main Logo" />
-        <h2 className="DatingLogo text-2xl lg:text-3xl font-bold italic text-[#ED147D]">
-          DatingLogo
-        </h2>
+        <div className="flex flex-col h-[40px] w-fit">
+          <h2 className="DatingLogo text-2xl lg:text-3xl font-bold italic text-[#ED147D]">
+            LDS 
+          </h2>
+          <p className="text-[#ed147d] italic text-xs">A Love Dating Site</p>
+        </div>
       </div>
       <div
         className="flex flex-col lg:flex-row justify-evenly 

@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../assets/DatingLogo.png";
 import { Link } from "react-router-dom";
+import { LoginContext } from "../Store/Store";
+import { CgProfile } from "react-icons/cg";
 
 const navLinks = [
   {
@@ -8,17 +10,12 @@ const navLinks = [
     tab: "Home",
   },
   {
-    href: '/packages',
+    href: "/packages",
     tab: "Packages",
-  }
-  ,
+  },
   {
     href: "/about",
     tab: "About us",
-  },
-  {
-    href: "/signup",
-    tab: "Login",
   },
   {
     href: "/privacy",
@@ -31,23 +28,55 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const { state, logOut } = useContext(LoginContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const NavLinks = ({ className }) => (
+  const NavLinks = ({ className, user }) => (
     <div className={className}>
       {navLinks.map((link, Index) => (
         <Link
           key={Index}
           to={link.href}
-          onClick={()=> setIsMenuOpen(false)}
+          onClick={() => setIsMenuOpen(false)}
           className="hover:text-gray-200 cursor-pointer"
         >
           {link.tab}
         </Link>
       ))}
+      {user ? (
+        <button
+          className="text-white text-sm hover:text-gray-200"
+          onClick={logOut}
+        >
+          Logout
+        </button>
+      ) : (
+        <Link
+          to="/signup"
+          onClick={() => setIsMenuOpen(false)}
+          className="text-white hover:from-red-500 hover:to-pink-500
+          bg-gradient-to-t from-pink-500 to-red-500 text-lg
+          px-8 py-2 rounded-xl font-bold md:px-6 md:py-3"
+        >
+          Log In
+        </Link>
+      )}
+      {user ? (
+        <div>
+          <div
+            className="rounded-full flex justify-center items-center py-2 
+          px-4 bg-gradient-to-l from-pink-600 to-red-500 gap-2 italic"
+          >
+            <CgProfile size={25} color="white" />
+            <div className="text-lg text-white font-semibold uppercase">
+              {user.firstName} {user.lastName}
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
-
   return (
     <>
       <div
@@ -56,13 +85,17 @@ const Navbar = () => {
       >
         <Link to="/" className="flex items-center gap-3">
           <img className="h-[40px] w-[40px]" src={Logo} alt="Dating Logo" />
-          <h1 className="text-xl md:text-2xl text-white italic font-bold">
-            DatingLogo
-          </h1>
+          <div className="flex flex-col h-[40px] w-fit">
+            <h1 className="text-xl md:text-2xl text-white font-sans italic font-bold">
+              LDS
+            </h1>
+            <p className="text-white italic text-xs">A Love Dating Site</p>
+          </div>
         </Link>
-
-        <NavLinks className="hidden md:flex text-white items-center gap-5" />
-
+        <NavLinks
+          className="hidden md:flex text-white items-center gap-5"
+          user={state.user}
+        />
         <button
           className="md:hidden text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -96,6 +129,7 @@ const Navbar = () => {
             className="absolute top-[80px] left-0 w-full h-fit bg-black/40 
               backdrop-blur-xl text-white flex flex-col items-center gap-4 p-4 
               border-t border-gray-800 transition-opacity"
+            user={state.user}
           />
         </div>
       )}
@@ -104,4 +138,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

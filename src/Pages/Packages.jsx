@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { FaCheck } from "react-icons/fa";
 import { Navigate, Link } from "react-router-dom";
+import { LoginContext } from "../Store/Store";
 
 const PricingTable = () => {
+  const { state } = useContext(LoginContext);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
@@ -16,7 +18,7 @@ const PricingTable = () => {
   const plans = [
     {
       name: "BASIC",
-      price: "0",
+      price: "5999",
       features: [
         "First Feature Here",
         "Second Feature Here",
@@ -29,7 +31,7 @@ const PricingTable = () => {
     },
     {
       name: "PROFESSIONAL",
-      price: "39",
+      price: "8999",
       features: [
         "First Feature Here",
         "Second Feature Here",
@@ -45,7 +47,7 @@ const PricingTable = () => {
     },
     {
       name: "TEAM",
-      price: "79",
+      price: "15999",
       features: [
         "First Feature Here",
         "Second Feature Here",
@@ -54,7 +56,7 @@ const PricingTable = () => {
         "Fifth Feature Here",
         "Sixth Feature Here",
         "Seventh Feature Here",
-        "Eighth Feature Here",
+        "More Control Over Your Choices",
       ],
       bgColor: "bg-pink-600",
       textColor: "text-white",
@@ -71,19 +73,13 @@ const PricingTable = () => {
     "Fifth Feature Here",
     "Sixth Feature Here",
     "Seventh Feature Here",
-    "Eighth Feature Here",
+    "More Control Over Your Choices",
   ];
 
   const handleClick = (planName) => {
     console.log(planName);
     setRedirectTo(`/checkout?plan=${planName}`);
   };
-
-  // const handleClick = () => {
-  //   // Navigate to checkout page with selected plan
-  //   // Example: navigate("/checkout?plan=PROFESSIONAL");
-  //   Navigate("/checkout?plan=PROFESSIONAL");
-  // };
 
   const onTouchStart = (e) => {
     clearInterval(autoSlideTimer.current);
@@ -149,17 +145,26 @@ const PricingTable = () => {
       className="min-h-screen bg-gray-100 py-12 px-4 
     sm:px-6 lg:px-8 pt-[150px]"
     >
-      <div 
-      className="flex flex-row-reverse flex-end justify-center 
-      items-center px-5 gap-5 mb-3">
-        <button 
-        className="py-3 px-5 rounded-full text-white hover:bg-gradient-to-bl
-        bg-gradient-to-tr from-pink-500 to-red-600 transition-all">
-          <Link className="font-bold" to="/withdraw">Withdraw</Link>
+      <div
+        className="flex flex-row-reverse flex-end justify-center 
+      items-center px-5 gap-5 mb-3"
+      >
+        <button
+          className="py-3 px-5 rounded-full text-white hover:bg-gradient-to-bl
+        bg-gradient-to-tr from-pink-500 to-red-600 transition-all"
+        >
+          <Link className="font-bold" to="/withdraw">
+            Withdraw
+          </Link>
         </button>
-        <div className="text-nowrap">
-          Total Money : <span className="text-red-700">$300</span>
-        </div>
+        {state.user ? (
+          <div className="text-nowrap">
+            Total Money :{" "}
+            <span className="text-red-700">{state.user.balance + "₹"}</span>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div className="max-w-5xl mx-auto">
         {/* Desktop View */}

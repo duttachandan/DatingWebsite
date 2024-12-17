@@ -31,7 +31,7 @@ const ImageSlider = () => {
       image: profile4,
       name: "Amy Smith",
       description:
-        "THANK YOU for facilitating my meeting with my soulmate. I'll be eternally grateful to Romancedelight for bringing us together.",
+        "THANK YOU for facilitating my meeting with my soulmate. I'll be eternally grateful to LDS for bringing us together.",
     },
   ];
 

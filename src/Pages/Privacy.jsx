@@ -24,10 +24,10 @@ const Privacy = () => {
         </p>
         <ul className="list-disc px-3 py-2">
           <li>
-            <p>Communicating with you regarding Romancedelight services;</p>
+            <p>Communicating with you regarding LDS services;</p>
           </li>
           <li>
-            <p>Promoting the services of Romancedelight partners;</p>
+            <p>Promoting the services of LDS partners;</p>
           </li>
           <li>
             <p>
@@ -47,7 +47,7 @@ const Privacy = () => {
         </h3>
         <p>
           In order to deliver the highest quality of service and experience to
-          its members, Romancedelight gathers a diverse range of information,
+          its members, LDS gathers a diverse range of information,
           which includes:
         </p>
         <ul className="list-disc px-3 py-2">
@@ -67,7 +67,7 @@ const Privacy = () => {
           <li>
             <p>
               Information derived from your posts and communications on the
-              Romancedelight website;
+              LDS website;
             </p>
           </li>
           <li>
@@ -79,7 +79,7 @@ const Privacy = () => {
           </li>
           <li>
             <p>
-              When you process payments through the Romancedelight website, you
+              When you process payments through the LDS website, you
               may provide payment information.
             </p>
           </li>
@@ -99,7 +99,7 @@ const Privacy = () => {
               Analytics allows us to associate visitor activities with a
               specific user account while they are logged in. This means that
               all interactions recorded by Google Analytics can be linked to a
-              single Romancedelight user account during their session. All data
+              single LDS user account during their session. All data
               sent to Google Analytics is anonymized, ensuring it cannot be used
               to identify you personally;
             </p>
@@ -113,7 +113,7 @@ const Privacy = () => {
           </li>
           <li>
             <p>
-              Romancedelight users are strictly prohibited from selling,
+              LDS users are strictly prohibited from selling,
               exchanging, or otherwise transferring the personal contact
               information of other members obtained through Romancedelight.
             </p>
@@ -123,19 +123,19 @@ const Privacy = () => {
           4.Insights Gathered from a Dating Platform.
         </h3>
         <p>
-          The information obtained from Romancedelight regarding other members
+          The information obtained from LDS regarding other members
           is strictly for the purpose of connecting with them to pursue a
           relationship aimed at future marriage. This information must not be
           utilized for any other purposes, including but not limited to:
         </p>
         <br />
         <p>
-          Photographs of Romancedelight members, personal advertisements,
+          Photographs of LDS members, personal advertisements,
           success stories, and any other details shared by members with
-          Romancedelight or consented to be published on the Romancedelight
+          LDS or consented to be published on the Romancedelight
           website are to be regarded as private and confidential unless a
           written agreement states otherwise. Furthermore, the presence of such
-          information on the Romancedelight website does not imply that it is
+          information on the LDS website does not imply that it is
           publicly accessible and should be treated accordingly.
         </p>
       </div>

@@ -4,12 +4,12 @@ const FaqContent = () => {
   return (
     <section className="mt-5 px-4">
       <div className="container FAQ_Block">
-        <h2 className="text-3xl text-[#db147b] font-bold font-serif text-center mb-5">FAQS About Romancedelight - Indian Dating Service</h2>
+        <h2 className="text-3xl text-[#db147b] font-bold font-serif text-center mb-5">FAQS About LDS - Indian Dating Service</h2>
         <div className="mb-3">
           <h3 className="text-2xl text-[#db147b] font-bold font-serif">What is Romancedelight?</h3>
           <p>
-            Romancedelight provides only to those who are looking for a serious
-            dating. Romancedelight is a completely free dating site. Meet
+            LDS provides only to those who are looking for a serious
+            dating. LDS is a completely free dating site. Meet
             hundreds of fun, gorgeous Asian women! No tricks! Now is the time to
             stop paying for online dating services! Join our site to meet single
             Indian wise women who are looking for fun and dating!
@@ -20,12 +20,12 @@ const FaqContent = () => {
             Why should I become a subscribed user of Romancedelight?
           </h3>
           <p>
-            A subscribed user on Romancedelight gets access to a whole bunch of
-            features to make their Romancedelight experience even better. Here
+            A subscribed user on LDS gets access to a whole bunch of
+            features to make their LDS experience even better. Here
             are a few:
             <br />
             Get to see profiles of all the Women. Each of the women on
-            Romancedelight has been thoroughly screened and interviewed by our
+            LDS has been thoroughly screened and interviewed by our
             expert team, we can completely guarantee that you’re talking to a
             real person. If you like them back, it’s a definite match!
             <br />
@@ -37,7 +37,7 @@ const FaqContent = () => {
             What about my privacy? Is my contact information safe?
           </h3>
           <p>
-            Romancedelight takes special care to ensure all information you
+            LDS takes special care to ensure all information you
             share with us remains confidential and is not misused. Woo does not
             share any of your details with anyone. Some of the security measures
             we take on the site to help you feel secure are –
@@ -70,17 +70,17 @@ const FaqContent = () => {
             </h3>
 
             <p>
-              Romancedelight is about real profiles, real people and real
+              LDS is about real profiles, real people and real
               commitments. If you are 18 above and looking for serious dating,
               this is where your search ends. Sign-up with us to start your
               romantic journey.
             </p>
 
             <p>
-              Romancedelight is a 100% Genuine Dating Site. Meet thousands of
+              LDS is a 100% Genuine Dating Site. Meet thousands of
               fun, attractive, women. No gimmicks, no tricks. Join our site and
               meet single &amp; interesting women looking to meet quality
-              singles for fun and dating in India wise. Romancedelight offers
+              singles for fun and dating in India wise. LDS offers
               matchmaking services that include recommendations and ideas based
               on the requirements of the users. The best way to meet
               beautiful&nbsp;singles Women for&nbsp;dating from all over India.
@@ -89,7 +89,7 @@ const FaqContent = () => {
             <h3 className="text-2xl text-[#db147b] font-bold font-serif">Get access the women all over the India online</h3>
 
             <p>
-              Romancedelight is an online dating service for single men living
+              LDS is an online dating service for single men living
               from around the Asia who are looking for a long-term meaningful
               relationship.
             </p>
@@ -110,8 +110,8 @@ const FaqContent = () => {
             <h3 className="text-2xl text-[#db147b] font-bold font-serif">Dating Indian women</h3>
 
             <p>
-              Romancedelight brings you a multitude of beautiful Indian women to
-              build a meaningful relationship with. Romancedelight puts your
+              LDS brings you a multitude of beautiful Indian women to
+              build a meaningful relationship with. LDS puts your
               safety first. Maybe your date is just a few taps away! Join the
               best dating site in India today and find your lasting love!
             </p>
@@ -190,7 +190,7 @@ const FaqContent = () => {
               age spectrum, as we cater only for those people aged above
               18.Recently the world has changed dramatically with the Covid-19
               pandemic, so it is now incredibly important to stay safe and at
-              Romancedelight - that is our highest priority.&nbsp;{" "}
+              LDS - that is our highest priority.&nbsp;{" "}
             </p>
 
             <h3 className="text-2xl text-[#db147b] font-bold font-serif">Online Dating Safety</h3>

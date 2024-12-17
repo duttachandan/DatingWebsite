@@ -1,21 +1,75 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { LoginContext } from "../Store/Store";
+import { useNavigate } from "react-router-dom";
+import Modal from "../components/Modal";
 
 const SignupPage = () => {
-  const handleSubmit = (e) => {
+  const { logIn } = useContext(LoginContext);
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [errors, setErrors] = useState(false);
+  const [updateForm, setUpdateForm] = React.useState({
+    text: "",
+    password: "",
+    errors: {},
+  });
+
+  const handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const { name, value } = e.target;
+    if (name === null || value === null) {
+      setErrors(true);
+      setTimeout(() => {
+        setErrors(false);
+      }, 3000);
+    }
+    setUpdateForm((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!updateForm.text || !updateForm.password) {
+      setErrors(true); // Open error modal
+      setTimeout(() => {
+        setErrors(false);
+      }, 3000);
+      return;
+    }
+    try {
+      const response = await logIn(updateForm.text, updateForm.password);
+      if (response) {
+        setIsModalOpen(true);
+        console.log("Login Successful");
+        setTimeout(() => {
+          setIsModalOpen(false);
+          navigate("/");
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Login failed:", error.message);
+      setErrors(true); // Open error modal
+    }
   };
 
   return (
-    <div className="flex justify-center items-center 
-    pt-4 py-12 px-2 md:px-8 bg-[#db147b] md:bg-white">
-      <div className="min-h-[80vh] mt-[80px] w-full flex container rounded-xl 
-      overflow-hidden shadow-lg border-[#db147b] border-[3px]">
+    <div
+      className="flex justify-center items-center 
+    pt-4 py-12 px-2 md:px-8 bg-[#db147b] md:bg-white"
+    >
+      <div
+        className="min-h-[80vh] mt-[80px] w-full flex container rounded-xl 
+      overflow-hidden shadow-lg border-[#db147b] border-[3px]"
+      >
         {/* Left side - Form */}
-        <div className="w-full md:w-1/2 flex flex-col 
+        <div
+          className="w-full md:w-1/2 flex flex-col 
         items-center justify-center
-        p-5 bg-white">
+        p-5 bg-white"
+        >
           <div className="w-full max-w-md">
             {/* Logo */}
             <div className="flex justify-center mb-2 md:md-8">
@@ -44,16 +98,22 @@ const SignupPage = () => {
               <div>
                 <input
                   type="text"
+                  name="text"
                   placeholder="Username"
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  value={updateForm.text}
+                  onChange={handleChange}
                 />
               </div>
 
               <div>
                 <input
                   type="password"
+                  name="password"
                   placeholder="Password"
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  value={updateForm.password}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -84,8 +144,8 @@ const SignupPage = () => {
         </div>
 
         {/* Right side - Content */}
-        <div 
-        className="hidden md:flex w-1/2 bg-gradient-to-br 
+        <div
+          className="hidden md:flex w-1/2 bg-gradient-to-br 
         from-orange-500 via-red-500 to-pink-500
         items-center justify-center p-12"
         >
@@ -102,6 +162,27 @@ const SignupPage = () => {
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={isModalOpen || errors}
+        onClose={() => setIsModalOpen(false)}
+      >
+        <div className="p-6 bg-white">
+          <h2
+            className={`text-2xl font-bold mb-4 ${
+              isModalOpen ? "text-pink-500" : "text-gray-600"
+            }`}
+          >
+            {isModalOpen ? "Success" : "Errors"}
+          </h2>
+          <p className="mb-6 text-gray-600">
+            {isModalOpen
+              ? "Your Email Registered Sucssesfully"
+              : "Error Credentials, kindly Check your Credentials"}
+          </p>
+          <p className="text-pink-500">Redirecting...</p>
+        </div>
+      </Modal>
     </div>
   );
 };

@@ -1,9 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import QrCode from "../assets/qrCode/DatingQrCode.png";
+import { FaWhatsapp } from "react-icons/fa";
 import Modal from "../components/Modal";
+import { LoginContext } from "../Store/Store";
 
 const CommonCode = ({ handleSubmit, setFormData, formData }) => {
+  const { QrCode, state } = useContext(LoginContext);
+  useEffect(() => {
+    const fetchQr = async () => {
+      const response = await QrCode();
+      return response;
+    };
+    fetchQr();
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "9831991505"; // Replace with your WhatsApp number
+    const message = "Hello Sir I have Initiated My payment, My Upi Id is:"; // Replace with your message
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(url, "_blank"); // Open WhatsApp link in a new tab
+  };
+
   return (
     <div className="flex justify-center items-center min-h-[80vh]">
       <div
@@ -13,41 +32,22 @@ const CommonCode = ({ handleSubmit, setFormData, formData }) => {
         <div className="flex flex-col gap-3 justify-center items-center">
           <img
             className="w-[200px] h-[200px] object-cover"
-            src={QrCode}
+            src={`data:image/png;base64,${state.qrCode}`}
             alt="QR Code"
           />
           <h2 className="text-xl font-bold text-center">
             Scan this QR code to deposit funds
           </h2>
-        </div>
-        <form
-          onSubmit={handleSubmit}
-          className="flex justify-center items-start flex-col gap-5"
-        >
-          <div className="w-full flex justify-center items-start flex-col gap-3">
-            <label htmlFor="upiid" className="text-pink-500">
-              Enter Your UPI Id:
-            </label>
-            <input
-              type="text"
-              name="upiid"
-              placeholder="eg: 4138xxxxxxx"
-              value={formData.upiid} // Bind value
-              onChange={(e) =>
-                setFormData({ ...formData, upiid: e.target.value })
-              } // Update state
-              className="py-2 px-3 rounded-xl outline-none 
-              border-pink-500 border-[2px] w-full"
-            />
-          </div>
           <button
-            type="submit"
-            className="w-full bg-gradient-to-tr from-red-500 to-pink-500 text-white py-2 
-            rounded-md hover:bg-gradient-to-bl transition-colors font-bold"
+            onClick={handleWhatsAppClick}
+            className="px-3 py-2 bg-green-500 rounded-full flex 
+          justify-center items-center shadow-lg hover:shadow-xl transition-all"
+            aria-label="WhatsApp Button"
           >
-            Submit
+            <FaWhatsapp size={28} color="white" />
+            <span className="ml-2 text-white font-bold">Send Your Upi Id here</span>
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );
@@ -67,7 +67,6 @@ const Deposit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.upiid === "") {
-      // Show modal if UPI ID is empty
       setError(true);
       setTimeout(() => {
         setError(false);
@@ -121,12 +120,6 @@ const Deposit = () => {
               money will not show on your wallet as a result you will not be
               able to purchase any of our plans
             </h2>
-            {/* <button
-              onClick={() => onClose()}
-              className="bg-red-700 py-2 px-4 rounded-xl text-white"
-            >
-              Try Again
-            </button> */}
           </div>
         </Modal>
       )}

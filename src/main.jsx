@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout.jsx";
 import Home from "./Pages/Home.jsx";
 import "./App.css";
@@ -13,9 +13,10 @@ import Deposit from "./Pages/Deposit.jsx";
 import Contact from "./Pages/Contact.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
 import Packages from "./Pages/Packages.jsx";
+import { LoginProvider } from "./Store/Store.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <>
+  <LoginProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -36,5 +37,5 @@ createRoot(document.getElementById("root")).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </>
+  </LoginProvider>
 );

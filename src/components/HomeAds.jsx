@@ -11,7 +11,7 @@ const HomeAds = () => {
             How Does It Work?
           </h3>
           <p className="text-center italic">
-            It all starts with trust. Romancedelight provides us with a chance
+            It all starts with trust. LDS provides us with a chance
             to discover our own selves. And, we are now Bringing the LOVE of
             your life to your fingertips. Join us! 100% Verified by team.
           </p>
