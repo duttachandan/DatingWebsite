@@ -17,12 +17,17 @@ const PricingTable = () => {
 
   const plans = [
     {
-      name: "BASIC",
+      name: "BRONZE",
       price: "5999",
       features: [
-        "First Feature Here",
-        "Second Feature Here",
-        "Third Feature Here",
+        "Get your profile boosted for higher visibility",
+        "Filter matches by specific preferences",
+        "Send messages after matching",
+        "Engage in private video calls",
+        "Access a community of verified profiles",
+        "Receive faster responses from customer service",
+        "suggest 100 profile",
+        "deliver standard profiles",
       ],
       bgColor: "bg-gray-50",
       textColor: "text-gray-900",
@@ -30,15 +35,17 @@ const PricingTable = () => {
       included: [true, true, false, false, false, false, false, false],
     },
     {
-      name: "PROFESSIONAL",
+      name: "SILVER",
       price: "8999",
       features: [
-        "First Feature Here",
-        "Second Feature Here",
-        "Third Feature Here",
-        "Fourth Feature Here",
-        "Fifth Feature Here",
-        "Sixth Feature Here",
+        "Suggest 500 profile",
+        "Deliver high-class profiles",
+        "Get your profile boosted for higher visibility",
+        "Filter matches by specific preferences",
+        "Send messages without matching",
+        "Engage in private video calls(inc, semi-nude)",
+        "Access a community of verified profiles",
+        "Receive faster responses from customer service",
       ],
       bgColor: "bg-pink-400",
       textColor: "text-white",
@@ -46,17 +53,17 @@ const PricingTable = () => {
       included: [true, true, true, true, true, false, false, false],
     },
     {
-      name: "TEAM",
+      name: "GOLD",
       price: "15999",
       features: [
-        "First Feature Here",
-        "Second Feature Here",
-        "Third Feature Here",
-        "Fourth Feature Here",
-        "Fifth Feature Here",
-        "Sixth Feature Here",
-        "Seventh Feature Here",
-        "More Control Over Your Choices",
+        "Suggest 1000 profile",
+        "Deliver premium profiles(well mentioned)",
+        "Get your profile boosted for higher visibility",
+        "Filter matches by specific preferences",
+        "Send messages without matching",
+        "Engage in private video calls(inc, full-nude)",
+        "Access a community of verified profiles",
+        "Receive faster responses from customer service",
       ],
       bgColor: "bg-pink-600",
       textColor: "text-white",
@@ -66,14 +73,14 @@ const PricingTable = () => {
   ];
 
   const allFeatures = [
-    "First Feature Here",
-    "Second Feature Here",
-    "Third Feature Here",
-    "Fourth Feature Here",
-    "Fifth Feature Here",
-    "Sixth Feature Here",
-    "Seventh Feature Here",
-    "More Control Over Your Choices",
+    "Get your profile boosted for higher visibility",
+    "Filter matches by specific preferences",
+    "Send messages after matching",
+    "Engage in private video calls",
+    "Access a community of verified profiles",
+    "Receive faster responses from customer service",
+    "Suggest 100 profile",
+    "deliver standard profiles",
   ];
 
   const handleClick = (planName) => {
@@ -179,12 +186,12 @@ const PricingTable = () => {
                 <div className="text-center mb-4">
                   <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                   <div className="text-3xl font-bold">
-                    <span className="text-lg">$</span>
+                    <span className="text-lg">₹</span>
                     {plan.price}
                   </div>
                 </div>
                 <div className="space-y-3">
-                  {allFeatures.map((feature, featureIndex) => (
+                  {/* {allFeatures.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center">
                       {plan.included[featureIndex] && (
                         <FaCheck className="mr-2" />
@@ -193,11 +200,20 @@ const PricingTable = () => {
                         className={
                           !plan.included[featureIndex] ? "opacity-50" : ""
                         }
+                        style={{ fontSize: "0.8rem" }}
                       >
                         {feature}
                       </span>
                     </div>
-                  ))}
+                  ))} */}
+                  {plan.features.map((feature, featureIndex) => {
+                    return (
+                      <div className="flex items-center" key={featureIndex}>
+                        <FaCheck className="mr-2" />
+                        <span className="text-[0.9rem] italic">{feature}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -257,25 +273,19 @@ const PricingTable = () => {
                     <div className="text-center mb-4">
                       <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                       <div className="text-3xl font-bold">
-                        <span className="text-lg">$</span>
+                        <span className="text-lg">₹</span>
                         {plan.price}
                       </div>
                     </div>
                     <div className="space-y-3">
-                      {allFeatures.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center">
-                          {plan.included[featureIndex] && (
+                      {plan.features.map((feature, featureIndex) => {
+                        return (
+                          <div className="flex items-center" key={featureIndex}>
                             <FaCheck className="mr-2" />
-                          )}
-                          <span
-                            className={
-                              !plan.included[featureIndex] ? "opacity-50" : ""
-                            }
-                          >
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
+                            <span className="text-[0.7rem] italic">{feature}</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

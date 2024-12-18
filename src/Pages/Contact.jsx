@@ -29,7 +29,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <div className="min-h-screen w-full flex items-center justify-center p-4 bg-gray-100">
+      <div className="min-h-screen w-full flex items-center justify-center p-4 bg-gray-100 pt-[80px]">
         <div className="w-full max-w-4xl flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden">
           {/* Left Section */}
           <div
@@ -50,7 +50,7 @@ const ContactForm = () => {
                   <MdEmail size={20} />
                   <div>
                     <p className="font-semibold">CHAT TO US</p>
-                    <p className="text-sm opacity-90">hi@ourcompany.com</p>
+                    <p className="text-sm opacity-90">hi@lovedatingsite.com</p>
                   </div>
                 </div>
 
@@ -73,7 +73,7 @@ const ContactForm = () => {
                     <p className="text-sm opacity-90">
                       Mon-Fri from 8am to 5am
                     </p>
-                    <p className="text-sm opacity-90">+1(555) 000-000</p>
+                    <p className="text-sm opacity-90">+91 98319-91505</p>
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@ const ContactForm = () => {
             <h2 className="text-2xl font-bold mb-6">Level up your brand</h2>
             <p className="mb-6">
               You can reach us anytime via{" "}
-              <span className="text-blue-600">hi@ourcompany.com</span>
+              <span className="text-blue-600">hi@lovedatingsite.com</span>
             </p>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
@@ -167,16 +167,23 @@ const ContactForm = () => {
       {isModalOpen && (
         <div className="fixed top-0 left-0 w-full h-screen bg-gray-800 bg-opacity-75 z-50 flex justify-center items-center">
           <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold mb-6">Thank you!</h2>
+            <div className="flex flex-col items-center justify-between">
+              <h2 className="text-2xl font-bold mb-6 text-pink-500">
+                Thank you!
+              </h2>
               <button
-                className="text-sm text-gray-600 hover:text-gray-900"
+                className="text-md hover:text-gray-900 px-4 font-bold py-2
+                rounded-xl bg-gradient-to-t from-pink-500 to-red-400 text-white "
                 onClick={handleModalClose}
               >
                 Close
               </button>
             </div>
-            <p>Your submission has been received. Redirecting...</p>
+            <p className="text-slate-400 text-center mt-2">
+              Your submission has been received. 
+              <br />
+              <span className="text-pink-500 text-lg">Redirecting...</span>
+            </p>
           </div>
         </div>
       )}

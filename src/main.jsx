@@ -14,10 +14,12 @@ import Contact from "./Pages/Contact.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
 import Packages from "./Pages/Packages.jsx";
 import { LoginProvider } from "./Store/Store.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 createRoot(document.getElementById("root")).render(
   <LoginProvider>
     <BrowserRouter>
+    <ScrollToTop></ScrollToTop>
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* home routes and signup auth */}

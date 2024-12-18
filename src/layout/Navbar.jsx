@@ -37,7 +37,7 @@ const Navbar = () => {
           key={Index}
           to={link.href}
           onClick={() => setIsMenuOpen(false)}
-          className="hover:text-gray-200 cursor-pointer"
+          className="hover:text-gray-200 cursor-pointer text-nowrap"
         >
           {link.tab}
         </Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
           >
             <CgProfile size={25} color="white" />
             <div className="text-lg text-white font-semibold uppercase">
-              {user.firstName} {user.lastName}
+              {user.firstName}
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
             <h1 className="text-xl md:text-2xl text-white font-sans italic font-bold">
               LDS
             </h1>
-            <p className="text-white italic text-xs">A Love Dating Site</p>
+            <p className="text-white italic text-[0.70rem]">A Love Dating Site</p>
           </div>
         </Link>
         <NavLinks

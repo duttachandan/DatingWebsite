@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import HomeAds from "../components/HomeAds.jsx";
 import HomeAdsReverse from "../components/HomeAdsReverse.jsx";
 import ProfileSuggestion from "../components/ProfileSuggestion.jsx";
@@ -6,8 +6,10 @@ import ImageSlider from "../components/ImageSlider.jsx";
 import FaqSection from "../components/FaqSection.jsx";
 import FloatingWhatsAppButton from "../components/FloatingWhatsAppButton.jsx";
 import { Link } from "react-router-dom";
+import { LoginContext } from "../Store/Store.jsx";
 
 const Home = () => {
+  const { state } = useContext(LoginContext);
   return (
     <div className="min-h-[100vh]">
       {/* 1st Para */}
@@ -28,11 +30,12 @@ const Home = () => {
           Start meetings singles who are ready to commit today
         </p>
         <Link
-          to="/signup"
+          to={state.user ? "/packages" : "/signup"}
           className="rounded-full font-semibold italic
         text-[#ED147D] bg-white py-2 px-6 mt-3"
         >
-          Get Started
+          
+          {state.user ? "Purchase Plans" : "Get Started"}
         </Link>
       </div>
       {/* 2nd Para */}
@@ -53,11 +56,11 @@ const Home = () => {
           </p>
         </div>
         <Link
-          to="/signup"
+          to={state.user ? "/packages" : "/signup"}
           className="rounded-full font-semibold italic
-        text-[#ED147D] bg-white py-2 px-6"
+        text-[#ED147D] bg-white py-2 px-6 cursor-pointer"
         >
-          Sign In
+          {state.user ? "Packages" : "Sign In"}
         </Link>
       </div>
       {/* 3rd Para */}

@@ -9,7 +9,7 @@ export const LoginProvider = ({ children }) => {
     user: JSON.parse(localStorage.getItem("user")) || null,
     qrCode: null,
   };
-
+  
   const reducer = (state, action) => {
     switch (action.type) {
       case "LOGIN":
@@ -62,7 +62,7 @@ export const LoginProvider = ({ children }) => {
     }catch (error) {
       console.log(error.message);
     }
-  }
+  };
 
   return (
     <LoginContext.Provider value={{ state, logIn, logOut, QrCode }}>

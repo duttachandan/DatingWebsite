@@ -30,11 +30,17 @@ const CommonCode = ({ handleSubmit, setFormData, formData }) => {
       bg-white rounded-xl shadow-2xl p-10"
       >
         <div className="flex flex-col gap-3 justify-center items-center">
-          <img
-            className="w-[200px] h-[200px] object-cover"
-            src={`data:image/png;base64,${state.qrCode}`}
-            alt="QR Code"
-          />
+          {state.qrCode ? (
+            <img
+              className="w-[200px] h-[200px] object-cover"
+              src={`data:image/png;base64,${state.qrCode}`}
+              loading="lazy"
+              alt="QR Code"
+            />
+          ) : (
+            <div className="min-w-[200px] min-h-[200px] object-cover bg-gray-400 blur-2xl">
+            </div>
+          )}
           <h2 className="text-xl font-bold text-center">
             Scan this QR code to deposit funds
           </h2>
@@ -45,7 +51,9 @@ const CommonCode = ({ handleSubmit, setFormData, formData }) => {
             aria-label="WhatsApp Button"
           >
             <FaWhatsapp size={28} color="white" />
-            <span className="ml-2 text-white font-bold">Send Your Upi Id here</span>
+            <span className="ml-2 text-white font-bold">
+              Send Your Upi Id here
+            </span>
           </button>
         </div>
       </div>

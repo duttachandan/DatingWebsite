@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { LoginContext } from "../Store/Store";
 import { useNavigate } from "react-router-dom";
 import {
   model1,
@@ -104,14 +105,24 @@ const arrayImage = [
 
 const ProfileSuggestion = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showDating, setShowDating] = useState(false);
   const navigate = useNavigate();
-
+  const { state } = useContext(LoginContext);
   const handleCardClick = () => {
-    setShowModal(true);
-    setTimeout(() => {
-      setShowModal(false);
-      navigate("/signup");
-    }, 3000);
+    if (state.user.id) {
+      console.log("I am here");
+      setShowDating(true);
+      setTimeout(() => {
+        setShowDating(false);
+        navigate("/packages");
+      }, 3000);
+    } else {
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
+        navigate("/signup");
+      }, 3000);
+    }
   };
 
   return (
@@ -150,14 +161,22 @@ const ProfileSuggestion = () => {
         </div>
       </div>
 
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal
+        isOpen={showModal || showDating}
+        onClose={() => setShowModal(false)}
+      >
         <div className="space-y-4">
           <h2 className="text-xl font-bold text-[#ED147D]">
-            Sign Up to View Profile
+            {showDating
+              ? "Purchase a plan to  sent a dating request"
+              : "Sign Up to View Profile"}
           </h2>
           <p className="text-gray-600">
-            Please create an account to connect with this person
+            {showDating
+              ? "Please Purchase a Plan to continue"
+              : "Please create an account to connect with this person"}
           </p>
+          <p>Redirecting...</p>
         </div>
       </Modal>
     </>
