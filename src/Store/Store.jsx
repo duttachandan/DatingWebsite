@@ -9,7 +9,7 @@ export const LoginProvider = ({ children }) => {
     user: JSON.parse(localStorage.getItem("user")) || null,
     qrCode: null,
   };
-  
+
   const reducer = (state, action) => {
     switch (action.type) {
       case "LOGIN":
@@ -43,7 +43,11 @@ export const LoginProvider = ({ children }) => {
   const logIn = async (username, password) => {
     try {
       const response = await userLogin(username, password);
-      dispatch({ type: "LOGIN", payload: { user: response } });
+      if (response.status === 500) {
+        throw new Error("Invalid username or password");
+      } else {
+        dispatch({ type: "LOGIN", payload: { user: response } });
+      }
       return response;
     } catch (error) {
       console.log(error.message);
@@ -55,11 +59,11 @@ export const LoginProvider = ({ children }) => {
   };
 
   const QrCode = async () => {
-    try{
+    try {
       const response = await generateQrCode();
       console.log(response);
       dispatch({ type: "QRCODE", payload: { qrCode: response.qrCode } });
-    }catch (error) {
+    } catch (error) {
       console.log(error.message);
     }
   };

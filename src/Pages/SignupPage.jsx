@@ -41,9 +41,13 @@ const SignupPage = () => {
     }
     try {
       const response = await logIn(updateForm.text, updateForm.password);
+      console.log(response.status);
+      if (response.status === "500") {
+        setErrors(true); // Open error modal
+        return;
+      }
       if (response) {
         setIsModalOpen(true);
-        console.log("Login Successful");
         setTimeout(() => {
           setIsModalOpen(false);
           navigate("/");
@@ -163,10 +167,7 @@ const SignupPage = () => {
         </div>
       </div>
 
-      <Modal
-        isOpen={isModalOpen || errors}
-        onClose={() => setIsModalOpen(false)}
-      >
+      <Modal isOpen={isModalOpen || errors} onClose={() => setErrors(false)}>
         <div className="p-6 bg-white">
           <h2
             className={`text-2xl font-bold mb-4 ${
@@ -181,6 +182,16 @@ const SignupPage = () => {
               : "Error Credentials, kindly Check your Credentials"}
           </p>
           <p className="text-pink-500">Redirecting...</p>
+          {errors ? (
+            <button
+              onClick={()=>setErrors(false)}
+              className="font-bold text-slate-300 py-2 px-5"
+            >
+              Close
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </Modal>
     </div>
