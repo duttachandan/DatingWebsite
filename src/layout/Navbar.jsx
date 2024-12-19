@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import Logo from "../assets/DatingLogo.png";
 import { Link } from "react-router-dom";
 import { LoginContext } from "../Store/Store";
-import { CgProfile } from "react-icons/cg";
 
 const navLinks = [
   {
@@ -29,6 +28,7 @@ const navLinks = [
 
 const Navbar = () => {
   const { state, logOut } = useContext(LoginContext);
+  console.log(state.user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const NavLinks = ({ className, user }) => (
     <div className={className}>
@@ -64,9 +64,13 @@ const Navbar = () => {
         <div>
           <div
             className="rounded-full flex justify-center items-center py-2 
-          px-4 bg-gradient-to-l from-pink-600 to-red-500 gap-2 italic"
+            px-4 bg-gradient-to-l from-pink-600 to-red-500 gap-2 italic"
           >
-            <CgProfile size={25} color="white" />
+            <img
+              src={user.image}
+              className="w-[35px] h-[35px] rounded-full overflow-hidden"
+              alt=""
+            />
             <div className="text-lg text-white font-semibold uppercase">
               {user.firstName}
             </div>
@@ -89,7 +93,9 @@ const Navbar = () => {
             <h1 className="text-xl md:text-2xl text-white font-sans italic font-bold">
               LDS
             </h1>
-            <p className="text-white italic text-[0.70rem]">A Love Dating Site</p>
+            <p className="text-white italic text-[0.70rem]">
+              A Love Dating Site
+            </p>
           </div>
         </Link>
         <NavLinks

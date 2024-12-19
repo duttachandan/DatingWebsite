@@ -25,12 +25,10 @@ createRoot(document.getElementById("root")).render(
           {/* home routes and signup auth */}
           <Route index element={<Home />} />
           <Route path="/signup" element={<SignupPage />} />
-
           {/* Contact options */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/about" element={<AboutUs />} />
-
           {/* payment pages */}
           <Route path="/checkout" element={<Deposit />} />
           <Route path="/withdraw" element={<WithDraw />} />
