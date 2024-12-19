@@ -15,8 +15,10 @@ import AboutUs from "./Pages/AboutUs.jsx";
 import Packages from "./Pages/Packages.jsx";
 import { LoginProvider } from "./Store/Store.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById("root")).render(
+  <HelmetProvider>
   <LoginProvider>
     <BrowserRouter>
     <ScrollToTop></ScrollToTop>
@@ -38,4 +40,5 @@ createRoot(document.getElementById("root")).render(
       </Routes>
     </BrowserRouter>
   </LoginProvider>
+  </HelmetProvider>
 );

@@ -7,7 +7,8 @@ import {
   FaLinkedin,
   FaPinterest,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
+import Canonical from "../components/Canonical";
 
 const ContactForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,6 +30,8 @@ const ContactForm = () => {
 
   return (
     <>
+    <Canonical />
+    <Outlet />
       <div className="min-h-screen w-full flex items-center justify-center p-4 bg-gray-100 pt-[80px]">
         <div className="w-full max-w-4xl flex flex-col md:flex-row rounded-lg shadow-lg overflow-hidden">
           {/* Left Section */}

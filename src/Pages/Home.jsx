@@ -5,12 +5,16 @@ import ProfileSuggestion from "../components/ProfileSuggestion.jsx";
 import ImageSlider from "../components/ImageSlider.jsx";
 import FaqSection from "../components/FaqSection.jsx";
 import FloatingWhatsAppButton from "../components/FloatingWhatsAppButton.jsx";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { LoginContext } from "../Store/Store.jsx";
+import Canonical from "../components/Canonical";
 
 const Home = () => {
   const { state } = useContext(LoginContext);
   return (
+    <>
+    <Canonical />
+    <Outlet />
     <div className="min-h-[100vh]">
       {/* 1st Para */}
       <div
@@ -76,6 +80,7 @@ const Home = () => {
       {/* Floating Buttons for Whatsapp */}
       <FloatingWhatsAppButton />
     </div>
+    </>
   );
 };
 

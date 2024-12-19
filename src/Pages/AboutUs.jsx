@@ -1,7 +1,12 @@
 import React from "react";
+import Canonical from "../components/Canonical";
+import { Link, Outlet } from "react-router-dom";
 
 const Aboutus = () => {
   return (
+    <>
+    <Canonical />
+    <Outlet />
     <div className="mt-[80px] italic px-3 flex justify-center items-center">
       <div className="container">
         <h1 className="text-center text-[2rem] text-[#db147d]">
@@ -85,6 +90,7 @@ const Aboutus = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

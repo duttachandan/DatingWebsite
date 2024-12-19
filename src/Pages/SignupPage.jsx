@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { LoginContext } from "../Store/Store";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
+import Canonical from "../components/Canonical";
 
 const SignupPage = () => {
   const { logIn } = useContext(LoginContext);
@@ -60,6 +61,9 @@ const SignupPage = () => {
   };
 
   return (
+    <>
+    <Canonical />
+    <Outlet />
     <div
       className="flex justify-center items-center 
     pt-4 py-12 px-2 md:px-8 bg-[#db147b] md:bg-white"
@@ -195,6 +199,7 @@ const SignupPage = () => {
         </div>
       </Modal>
     </div>
+    </>
   );
 };
 

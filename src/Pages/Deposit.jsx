@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate, Outlet } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 import Modal from "../components/Modal";
 import { LoginContext } from "../Store/Store";
+import Canonical from "../components/Canonical";
 
 const CommonCode = ({ handleSubmit, setFormData, formData }) => {
   const { QrCode, state } = useContext(LoginContext);
@@ -93,6 +94,9 @@ const Deposit = () => {
   };
 
   return (
+    <>
+    <Canonical />
+    <Outlet />
     <div className="mt-[80px] text-black">
       <div className="text-center italic px-3">
         You have initiated{" "}
@@ -132,6 +136,7 @@ const Deposit = () => {
         </Modal>
       )}
     </div>
+    </>
   );
 };
 

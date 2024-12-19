@@ -1,7 +1,12 @@
 import React from "react";
+import Canonical from "../components/Canonical";
+import { Link, Outlet } from "react-router-dom";
 
 const Privacy = () => {
   return (
+    <>
+    <Canonical />
+    <Outlet />
     <div className="mt-[80px] px-4 italic flex justify-center items-center">
       <div className="container">
         <h1 className="text-center text-[#db147d] text-[2rem] font-semibold">
@@ -140,6 +145,7 @@ const Privacy = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

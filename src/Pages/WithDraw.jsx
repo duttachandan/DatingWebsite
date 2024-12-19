@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import Modal from '../components/Modal'
+import Canonical from "../components/Canonical";
 
 
 const WithDraw = () => {
@@ -42,6 +43,9 @@ const WithDraw = () => {
   };
 
   return (
+    <>
+    <Canonical />
+    <Outlet />
     <div
       className="min-h-screen w-full flex flex-col 
       md:flex-row justify-center items-center
@@ -193,6 +197,7 @@ const WithDraw = () => {
         </Modal> 
       </div>
     </div>
+    </>
   );
 };
 

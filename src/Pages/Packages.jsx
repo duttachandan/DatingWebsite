@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { FaCheck } from "react-icons/fa";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, Outlet} from "react-router-dom";
 import { LoginContext } from "../Store/Store";
+import Canonical from "../components/Canonical";
 
 const PricingTable = () => {
   const { state } = useContext(LoginContext);
@@ -148,6 +149,9 @@ const PricingTable = () => {
   }
 
   return (
+    <>
+    <Canonical />
+    <Outlet />
     <div
       className="min-h-screen bg-gray-100 py-12 px-4 
     sm:px-6 lg:px-8 pt-[150px]"
@@ -295,6 +299,7 @@ const PricingTable = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
