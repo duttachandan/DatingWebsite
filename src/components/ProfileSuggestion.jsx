@@ -109,7 +109,7 @@ const ProfileSuggestion = () => {
   const navigate = useNavigate();
   const { state } = useContext(LoginContext);
   const handleCardClick = () => {
-    if (state.user.id) {
+    if (state.user) {
       console.log("I am here");
       setShowDating(true);
       setTimeout(() => {
@@ -117,6 +117,7 @@ const ProfileSuggestion = () => {
         navigate("/packages");
       }, 3000);
     } else {
+      console.log("i am clicked");
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
